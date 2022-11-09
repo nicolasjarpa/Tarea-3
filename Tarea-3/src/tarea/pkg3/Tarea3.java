@@ -1,33 +1,19 @@
 package tarea.pkg3;
 import java.util.ArrayList;
 public class Tarea3 {
-    public static void main(String[] args) {
-        
-        Expendedor maquina = new Expendedor(2,500,1000,1000);
-        Moneda Moneda100 = new Moneda100();
+    private COMPRADOR com; 
+    private Expendedor exp;
+    
+  public Tarea3(){
+       Moneda Moneda100 = new Moneda100();
         Moneda Moneda500 = new Moneda500();
         Moneda Moneda1000 = new Moneda1000();
-        System.out.println(Moneda100.getSerie());
-        System.out.println(Moneda500.getSerie());
-        System.out.println(Moneda1000.getSerie());
-        System.out.print("\n");
-
+        exp = new Expendedor (3,100,200,300); 
+        com = new COMPRADOR(exp,Moneda1000,2);         
         
-        COMPRADOR ElPepe = new COMPRADOR(maquina, Moneda1000, 3);
-        System.out.println(ElPepe.getSabor());
-        System.out.println("Vuelto a recibir: " + ElPepe.getVuelto());
-        System.out.print("\n");
-        
-        COMPRADOR EteSech = new COMPRADOR(maquina, Moneda1000, 1);
-        System.out.println(EteSech.getSabor());
-        System.out.println("Vuelto a recibir: " + EteSech.getVuelto());
-        System.out.print("\n");
-        
-        COMPRADOR Tilin = new COMPRADOR(maquina, null, 3);
-        System.out.println(Tilin.getSabor());
-        System.out.println("Vuelto a recibir: " + Tilin.getVuelto());
-        System.out.print("\n");
-
-    }
+  }public static void main(String[] args) {
+      Interfaz ventana=new Interfaz();
+       ventana.setVisible(true);
+       
 }
-
+    }
