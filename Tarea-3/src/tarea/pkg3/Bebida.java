@@ -26,19 +26,34 @@ abstract class Bebida {
 }
 
 class Fanta extends Bebida {
+    
+    private Image fanta;
+
 
     public Fanta(int a) {
         super(a);
+        fanta = new ImageIcon("fanta.png").getImage();
     }
+    
+    @Override
+    public void paint(Graphics g) {
+        ImageObserver observer = new ImageObserver() {
+
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                return true;
+            }
+        };
+        
+        g.drawImage(fanta, 400, 400, 225, 225, null);
+    }
+
 
     public String beber() {
 
         return super.beber() + "Fanta";
     }
 
-    public void paint(Graphics g) {
-
-    }
 }
 
 class Coca extends Bebida {
@@ -75,9 +90,24 @@ class Coca extends Bebida {
 }
 
 class Sprite extends Bebida {
+    private Image sprite;
 
     public Sprite(int a) {
         super(a);
+        sprite = new ImageIcon("sprite.png").getImage();
+    }
+    
+    @Override
+    public void paint(Graphics g) {
+        ImageObserver observer = new ImageObserver() {
+
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                return true;
+            }
+        };
+        
+        g.drawImage(sprite, 225, 225, 225, 225, null);
     }
 
     public String beber() {
@@ -85,7 +115,5 @@ class Sprite extends Bebida {
         return super.beber() + "sprite";
     }
 
-    public void paint(Graphics g) {
 
-    }
 }
