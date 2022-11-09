@@ -1,4 +1,4 @@
-package tarea2;
+package tarea.pkg3;
 import java.util.ArrayList;
 public class Expendedor {
     private Deposito coca;

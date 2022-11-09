@@ -1,5 +1,5 @@
 
-package tarea2;
+package tarea.pkg3;
 import java.util.ArrayList;
 class Deposito{
     private ArrayList <Bebida> n;

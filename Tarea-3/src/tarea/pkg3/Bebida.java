@@ -1,4 +1,4 @@
-package tarea2;
+package tarea.pkg3;
 abstract class Bebida {
  private int xd;
     public Bebida(int a){
