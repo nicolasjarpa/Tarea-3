@@ -7,19 +7,16 @@ class DepositoVuelto{
     
     
     public DepositoVuelto(){
-      m = new ArrayList();
+      m = new ArrayList<Moneda>();
     }
     public void addMoneda(Moneda b){
         m.add(b);
     }
-    
+  
     public void Monea100(){
         m.add(new Moneda100());
     }
-        public void paint(Graphics g){
-        Moneda a = m.get(0);
-        a.paint(g);
-    }
+
     public Moneda getMoneda(){
 
         if(m.size()==0){
@@ -28,5 +25,9 @@ class DepositoVuelto{
         
         return m.remove(0);
         
+    }        
+    public void paint(Graphics g){
+      Moneda a100 = m.get(0);
+      a100.paint(g);
     }
 }

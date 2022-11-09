@@ -38,7 +38,7 @@ public class Expendedor {
          coca.paint(g);
         fanta.paint(g);
         sprite.paint(g);
-         pepe.paint(g);
+         
         
     }
     
