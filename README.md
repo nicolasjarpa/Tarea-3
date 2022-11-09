@@ -1,1 +1,1 @@
-# NICOLÁS JARPA  -- PEDRO GAJARDO 
+# Nicolás Jarpa Jeldres - Pedro Gajardo Garfe
