@@ -1,5 +1,6 @@
 
 package tarea.pkg3;
+import java.awt.Graphics;
 import java.util.ArrayList;
 class DepositoVuelto{
     private ArrayList <Moneda> m;
@@ -23,6 +24,10 @@ class DepositoVuelto{
         }
         
         return m.remove(0);
+        
+    }
+    
+    public void paint(Graphics g){
         
     }
 

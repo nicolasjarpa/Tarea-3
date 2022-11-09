@@ -1,4 +1,5 @@
 package tarea.pkg3;
+import java.awt.Graphics;
 import java.util.ArrayList;
 public class COMPRADOR {
     
@@ -42,6 +43,10 @@ public class COMPRADOR {
     }
     public int getVuelto(){
         return vuelto;
+    }
+    
+    public void paint(Graphics g){
+        
     }
 }
 

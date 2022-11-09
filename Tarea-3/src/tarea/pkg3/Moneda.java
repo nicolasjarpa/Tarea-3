@@ -1,6 +1,7 @@
 
 package tarea.pkg3;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 abstract class Moneda{
@@ -16,6 +17,10 @@ abstract class Moneda{
      
         return 100;
      
+    }
+    
+    public void paint(Graphics g){
+        
     }
 }
 

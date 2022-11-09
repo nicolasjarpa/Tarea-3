@@ -1,4 +1,6 @@
 package tarea.pkg3;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 public class Expendedor {
     private Deposito coca;
@@ -7,9 +9,12 @@ public class Expendedor {
     private DepositoVuelto pepe;
     private int vuelto;
     
+    
     int precioCoca;
     int precioFanta;
     int precioSprite;
+    
+
     
     public Expendedor(int cantidad, int precioCoca, int precioFanta, int precioSprite){
         this.precioCoca = precioCoca;
@@ -24,7 +29,13 @@ public class Expendedor {
               coca.addBebida(new Coca(i+1000));
               fanta.addBebida(new Fanta(i+2000));
               sprite.addBebida(new Sprite(i+3000));
-            }
+            }  
+    }
+    
+    public void paint(Graphics g){
+        g.setColor(Color.blue);
+        g.fillRect(380,300,100,180);
+        coca.paint(g);
     }
     
     public Bebida compraBebida(Moneda m, int cual) throws NoHayBebidaException{
@@ -102,6 +113,8 @@ public class Expendedor {
     public Moneda getVuelto(){
         return pepe.getMoneda();
     }
+    
+
 }
 
     
