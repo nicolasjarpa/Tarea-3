@@ -1,14 +1,16 @@
 package tarea.pkg3;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 public class COMPRADOR {
     
     private int vuelto;
     private String sabor;
-
+    private Moneda m;
     
     
     public COMPRADOR(Expendedor p, Moneda m, int cual){
+         m = m;
         Bebida b = null;
         vuelto = 0;
         Moneda n;
@@ -35,8 +37,10 @@ public class COMPRADOR {
                 break;
             }
         }
-           
-        
+    }  
+        public void paint(Graphics g){
+       m.paint(g);
+    
     }
     public String getSabor(){
         return sabor;
@@ -44,9 +48,7 @@ public class COMPRADOR {
     public int getVuelto(){
         return vuelto;
     }
-    
-    public void paint(Graphics g){
-        
-    }
 }
+    
+
 

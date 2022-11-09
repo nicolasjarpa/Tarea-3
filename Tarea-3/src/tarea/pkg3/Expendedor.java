@@ -33,11 +33,13 @@ public class Expendedor {
     }
     
     public void paint(Graphics g){
-        g.setColor(Color.blue);
+         g.setColor(Color.blue);
         g.fillRect(380,300,100,180);
-        coca.paint(g);
+         coca.paint(g);
         fanta.paint(g);
         sprite.paint(g);
+         pepe.paint(g);
+        
     }
     
     public Bebida compraBebida(Moneda m, int cual) throws NoHayBebidaException{
