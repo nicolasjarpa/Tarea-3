@@ -9,7 +9,7 @@ public class Interfaz extends JFrame{
         e = new Expendedor(1,1,1,1);
 
         this.setSize(960, 960);
-        this.setTitle("Maduras calientes en tu zona");
+        this.setTitle("Máquina de Bebidas");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
