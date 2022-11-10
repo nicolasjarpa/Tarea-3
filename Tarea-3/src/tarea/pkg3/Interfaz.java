@@ -9,9 +9,9 @@ public class Interfaz extends JFrame{
   private Moneda Moneda100;
   private Moneda Moneda500;
   private Moneda Moneda1000;
-  public JRadioButton rdbA = new JRadioButton("Asesino de monea");
-  public JRadioButton rdbB = new JRadioButton("Bendecir Monea");
-   public JRadioButton rdbC = new JRadioButton("Q Li moneda ARG");
+  public JButton rdbA = new JButton("Asesino de monea");
+  public JButton rdbB = new JButton("Bendecir Monea");
+   public JButton rdbC = new JButton("Q Li moneda ARG");
   public JTextField txtColor = new JTextField(10);
   private ButtonGroup grupo = new ButtonGroup();
 
@@ -21,7 +21,7 @@ public class Interfaz extends JFrame{
         Moneda500 = new Moneda500();
         Moneda1000 = new Moneda1000();
 
-        e = new Expendedor(11,1000,100,100);
+        e = new Expendedor(11,1000,1000,1000);
         c= new COMPRADOR(e,Moneda1000,2);
         this.setSize(960, 960);
         this.setTitle("Máquina de Bebidas");
