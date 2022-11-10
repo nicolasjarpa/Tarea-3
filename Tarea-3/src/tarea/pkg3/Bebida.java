@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 abstract class Bebida {
     
-    public abstract void paint(Graphics g);
+    public abstract void paint(Graphics g, int x, int y);
     private int xd;
 
     public Bebida(int a) {
@@ -35,8 +35,9 @@ class Fanta extends Bebida {
         fanta = new ImageIcon("fanta.png").getImage();
     }
     
-    @Override
-    public void paint(Graphics g) {
+
+    public void paint(Graphics g, int x, int y) {
+        
         ImageObserver observer = new ImageObserver() {
 
             @Override
@@ -44,10 +45,15 @@ class Fanta extends Bebida {
                 return true;
             }
         };
-        
-        g.drawImage(fanta, 400, 400, 225, 225, null);
-    }
 
+
+        g.drawImage(fanta, x, y, 56, 56, null);
+
+            
+            
+        
+        
+    }
 
     public String beber() {
 
@@ -65,8 +71,8 @@ class Coca extends Bebida {
         coca = new ImageIcon("coca.png").getImage();
     }
     
-    @Override
-    public void paint(Graphics g) {
+
+    public void paint(Graphics g, int x, int y) {
         ImageObserver observer = new ImageObserver() {
 
             @Override
@@ -75,7 +81,7 @@ class Coca extends Bebida {
             }
         };
         
-        g.drawImage(coca, 0, 0, 225, 225, null);
+        g.drawImage(coca, x, y, 56, 56, null);
 
     }
 
@@ -98,7 +104,7 @@ class Sprite extends Bebida {
     }
     
     @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics g, int x, int y) {
         ImageObserver observer = new ImageObserver() {
 
             @Override
@@ -107,7 +113,7 @@ class Sprite extends Bebida {
             }
         };
         
-        g.drawImage(sprite, 225, 225, 225, 225, null);
+        g.drawImage(sprite, x, y, 56, 56, null);
     }
 
     public String beber() {

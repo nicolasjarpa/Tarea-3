@@ -26,12 +26,13 @@ class Deposito{
         return n.remove(0);
         
     }
-    
-    public void paint(Graphics g){
+
+    void paint(Graphics g, int x, int y) {
         Bebida b = n.get(0);
-        b.paint(g);
+        b.paint(g, x, y);
     }
     
+
 
 
 

@@ -1,13 +1,18 @@
 package tarea.pkg3;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 public class Expendedor {
     private Deposito coca;
     private Deposito fanta;
     private Deposito sprite;
     private DepositoVuelto pepe;
     private int vuelto;
+    private Image exp;
+    private Image pe;
+    private int tot;
     
     
     int precioCoca;
@@ -20,6 +25,9 @@ public class Expendedor {
         this.precioCoca = precioCoca;
         this.precioFanta = precioFanta;
         this.precioSprite = precioSprite;
+        tot = cantidad;
+        exp = new ImageIcon("expend.png").getImage();
+
           coca= new Deposito();
            fanta = new Deposito();
           sprite = new Deposito();
@@ -33,11 +41,20 @@ public class Expendedor {
     }
     
     public void paint(Graphics g){
-         g.setColor(Color.blue);
-        g.fillRect(380,300,100,180);
-         coca.paint(g);
-        fanta.paint(g);
-        sprite.paint(g);
+        g.drawImage(exp, -400, 0, 1480, 800, null);
+        if(tot>10){
+            tot = 10;
+        }
+        int j=0;
+        for(int i=0; i<tot; i++){
+            
+            coca.paint(g, 165+j, 475);
+            fanta.paint(g, 165+j, 400);
+            sprite.paint(g, 165+j, 331);
+            j=j+28;
+        }
+
+
          
         
     }
@@ -116,6 +133,10 @@ public class Expendedor {
     
     public Moneda getVuelto(){
         return pepe.getMoneda();
+    }
+    
+    public int getTot(){
+        return tot;
     }
     
 

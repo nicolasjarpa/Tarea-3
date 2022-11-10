@@ -37,7 +37,7 @@ public abstract void paint(Graphics g);
             }
         };
         
-        g.drawImage(Moneda100,600 , 500, 50, 50, null);
+        g.drawImage(Moneda100,860 , 860, 50, 50, null);
     }
         
     
@@ -63,7 +63,7 @@ public abstract void paint(Graphics g);
             }
         };
         
-        g.drawImage(Moneda500,300 , 300, 225, 225, null);
+        g.drawImage(Moneda500,860 , 860, 50, 50, null);
     }
         
     
@@ -91,7 +91,7 @@ public abstract void paint(Graphics g);
             }
         };
         
-        g.drawImage(Moneda1000,500 , 300, 225, 225, null);
+        g.drawImage(Moneda1000,860 , 860, 50, 50, null);
     }
      
      @Override
