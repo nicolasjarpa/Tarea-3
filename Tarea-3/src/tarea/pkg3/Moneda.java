@@ -29,13 +29,6 @@ public abstract void paint(Graphics g);
     }
      @Override
     public void paint(Graphics g) {
-         ImageObserver observer = new ImageObserver() {
-
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                return true;
-            }
-        };
         
         g.drawImage(Moneda100,860 , 860, 50, 50, null);
     }
@@ -83,15 +76,7 @@ public abstract void paint(Graphics g);
      }
      @Override
      public void paint(Graphics g) {
-         ImageObserver observer = new ImageObserver() {
 
-            @Override
-            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-                return true;
-            }
-        };
-        
-        g.drawImage(Moneda1000,860 , 860, 50, 50, null);
     }
      
      @Override
