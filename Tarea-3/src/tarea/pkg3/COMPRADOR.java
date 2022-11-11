@@ -58,8 +58,8 @@ public class COMPRADOR {
         return vuelto;
     }
 
-    public Moneda getmoneda100(){
-           return ;
+    public void getmoneda100(){
+       
  
       
 

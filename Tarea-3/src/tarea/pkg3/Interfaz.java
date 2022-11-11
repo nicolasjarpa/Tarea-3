@@ -139,17 +139,17 @@ public  void LineaTexto(){
     texto4.setText(String.valueOf("Saldo "+a));
     }
       if (b.getSource() == Mon100) {
-          
+      a=a+ Moneda100.getValor();
    System.out.println("is");
-   texto4.setText("Saldo ");
+   texto4.setText("Saldo "+a);
     }
         if (b.getSource() == Mon500) {
-            a=a+500;
+            a=a+Moneda500.getValor();
    System.out.println("real");
    texto4.setText(String.valueOf("Saldo "+a));
     }
           if (b.getSource() == Mon1000) {
-              a=a+1000;
+              a=a+Moneda1000.getValor();
    System.out.println("can we get much higher");
    texto4.setText(String.valueOf("Saldo "+a));
     }
