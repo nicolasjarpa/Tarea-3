@@ -2,7 +2,9 @@ package tarea.pkg3;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
-public class Interfaz extends JFrame{
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Interfaz extends JFrame implements ActionListener{
   public JPanel lamina = new JPanel();
   private Expendedor e;
   private COMPRADOR c;
@@ -17,14 +19,14 @@ public class Interfaz extends JFrame{
   public JButton Mon100 = new JButton();
   public JTextField txtColor = new JTextField(10);
   private ButtonGroup grupo = new ButtonGroup();
-
-  
+    public  JTextField campoTexto = new JTextField(4);
+ 
     public Interfaz(){
         Moneda100 = new Moneda100();
         Moneda500 = new Moneda500();
         Moneda1000 = new Moneda1000();
 
-        e = new Expendedor(11,1000,1000,1000);
+        e = new Expendedor(11,600,200,1000);
         c= new COMPRADOR(e,Moneda1000,2);
         this.setSize(960, 960);
         this.setTitle("Máquina de Bebidas");
@@ -33,6 +35,7 @@ public class Interfaz extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().add(lamina);
         config();
+        LineaTexto();
      
     }
     
@@ -53,32 +56,85 @@ public class Interfaz extends JFrame{
         ImageIcon imagen_boton = new ImageIcon("bsprite.png");
         rdbA.setIcon(new ImageIcon(imagen_boton.getImage().getScaledInstance(rdbA.getWidth(), rdbA.getHeight(), Image.SCALE_SMOOTH)));
         lamina.add(rdbA);
+         rdbA.addActionListener(this);
         grupo.add(rdbB);
         rdbB.setBounds(690, 275, 150, 150);
         ImageIcon imagen_boton2 = new ImageIcon("bfanta.png");
         rdbB.setIcon(new ImageIcon(imagen_boton2.getImage().getScaledInstance(rdbB.getWidth(), rdbB.getHeight(), Image.SCALE_SMOOTH)));
         lamina.add(rdbB);
+        rdbB.addActionListener(this);
         grupo.add(rdbC);
         rdbC.setBounds(690, 450, 150, 150);
         ImageIcon imagen_boton3 = new ImageIcon("bcock.png");
         rdbC.setIcon(new ImageIcon(imagen_boton3.getImage().getScaledInstance(rdbC.getWidth(), rdbC.getHeight(), Image.SCALE_SMOOTH)));
         lamina.add(rdbC);
+        rdbC.addActionListener(this);
         grupo.add(Mon1000);
-        Mon1000.setBounds(860, 860, 50, 50);
+        
+        Mon1000.setBounds(860, 660, 50, 50);
         ImageIcon mon = new ImageIcon("monea1000.png");
         Mon1000.setIcon(new ImageIcon(mon.getImage().getScaledInstance(Mon1000.getWidth(),Mon1000.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(Mon1000);
+        Mon1000.addActionListener(this);
         grupo.add(Mon500);
-        Mon500.setBounds(780, 860, 50, 50);
+        Mon500.setBounds(780, 660, 50, 50);
         ImageIcon mon500 = new ImageIcon("monea500.png");
         Mon500.setIcon(new ImageIcon(mon500.getImage().getScaledInstance(Mon500.getWidth(),Mon500.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(Mon500);
+        Mon500.addActionListener(this);
         grupo.add(Mon100);
-        Mon100.setBounds(700, 860, 50, 50);
+        Mon100.setBounds(700, 660, 50, 50);
         ImageIcon mon100 = new ImageIcon("monea100.png");
         Mon100.setIcon(new ImageIcon(mon100.getImage().getScaledInstance(Mon100.getWidth(),Mon100.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(Mon100);
-        
+        Mon100.addActionListener(this);
     }
-    
+public  void LineaTexto(){
+        JTextField texto = new JTextField();
+        texto.setBounds(550, 150, 80, 50);
+        texto.setBackground(Color.white);
+        texto.setText("Precio "+e.spriteprice());
+        texto.setEditable(false);
+        lamina.add(texto);
+        JTextField texto2 = new JTextField();
+        texto2.setBounds(550, 300, 80, 50);
+        texto2.setBackground(Color.white);
+        texto2.setText("Precio " +e.fantaprice());
+        texto2.setEditable(false);
+        lamina.add(texto2);
+        JTextField texto3 = new JTextField();
+        texto3.setBounds(550, 450, 80, 50);
+        texto3.setBackground(Color.white);
+        texto3.setText("Precio " +e.cocaprice());
+        texto3.setEditable(false);
+        lamina.add(texto3);
+        JTextField texto4 = new JTextField();
+        texto4.setBounds(50, 50, 80, 50);
+        texto4.setBackground(Color.white);
+        texto4.setText("SALDO ");
+        texto4.setEditable(false);
+        lamina.add(texto4);
+                }
+
+ public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == rdbA) {
+    System.out.println("the");
+    }
+    if (e.getSource() == rdbB) {
+    System.out.println("one");
+  }
+    if (e.getSource() == rdbC) {
+   System.out.println("piece");
+    }
+      if (e.getSource() == Mon100) {
+   System.out.println("is");
+    }
+        if (e.getSource() == Mon500) {
+   System.out.println("real");
+    }
+          if (e.getSource() == Mon1000) {
+   System.out.println("can we get much higher");
+    }
 }
+}
+

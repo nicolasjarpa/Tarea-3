@@ -30,7 +30,7 @@ public abstract void paint(Graphics g);
      @Override
     public void paint(Graphics g) {
         
-        g.drawImage(Moneda100,860 , 860, 50, 50, null);
+        g.drawImage(Moneda100,760 , 760, 50, 50, null);
     }
         
     
@@ -56,7 +56,7 @@ public abstract void paint(Graphics g);
             }
         };
         
-        g.drawImage(Moneda500,860 , 860, 50, 50, null);
+        g.drawImage(Moneda500,760 , 760, 50, 50, null);
     }
         
     

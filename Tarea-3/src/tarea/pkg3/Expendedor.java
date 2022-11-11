@@ -139,7 +139,15 @@ public class Expendedor {
         return tot;
     }
     
-
+public int  cocaprice(){
+    return precioCoca;
+}
+public int  spriteprice(){
+    return precioSprite;
+}
+public int  fantaprice(){
+    return precioFanta;
+}
 }
 
     
