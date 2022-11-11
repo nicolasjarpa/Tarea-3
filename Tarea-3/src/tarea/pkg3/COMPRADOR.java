@@ -10,7 +10,7 @@ public class COMPRADOR {
     private String sabor;
     private DepositoVuelto x;
     private Moneda b;
- private int a;
+    private int a;
     
       
     public COMPRADOR(Expendedor p, Moneda m, int cual){
@@ -59,7 +59,7 @@ public class COMPRADOR {
     }
 
     public Moneda getmoneda100(){
-           return b.Moneda100();
+           return ;
  
       
 

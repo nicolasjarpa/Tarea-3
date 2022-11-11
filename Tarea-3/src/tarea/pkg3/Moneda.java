@@ -20,6 +20,7 @@ public abstract void paint(Graphics g);
         return 100;
      
     }
+}
  class Moneda100 extends Moneda{
       private final Image Moneda100;
      public Moneda100(){
@@ -84,4 +85,3 @@ public abstract void paint(Graphics g);
     }
       
  }
-}

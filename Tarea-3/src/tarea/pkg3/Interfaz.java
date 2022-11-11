@@ -141,7 +141,7 @@ public  void LineaTexto(){
       if (b.getSource() == Mon100) {
           
    System.out.println("is");
-   texto4.setText("Saldo "+c.getmoneda());
+   texto4.setText("Saldo ");
     }
         if (b.getSource() == Mon500) {
             a=a+500;
