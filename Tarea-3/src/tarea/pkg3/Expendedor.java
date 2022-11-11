@@ -148,7 +148,8 @@ public int  spriteprice(){
 public int  fantaprice(){
     return precioFanta;
 }
-}
 
+
+}
     
 

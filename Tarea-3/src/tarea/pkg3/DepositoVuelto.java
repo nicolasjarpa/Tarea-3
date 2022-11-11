@@ -15,6 +15,13 @@ class DepositoVuelto{
   
     public void Monea100(){
         m.add(new Moneda100());
+        
+    }
+    public void Monea500(){
+        m.add(new Moneda500());
+    }
+    public void Monea1000(){
+        m.add(new Moneda1000());
     }
 
     public Moneda getMoneda(){

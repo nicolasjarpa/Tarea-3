@@ -9,11 +9,14 @@ public class COMPRADOR {
     private int vuelto;
     private String sabor;
     private DepositoVuelto x;
- 
+    private Moneda b;
+ private int a;
     
       
     public COMPRADOR(Expendedor p, Moneda m, int cual){
         x = new DepositoVuelto();
+      
+        a=cual;
         x.addMoneda(m);
         Bebida b = null;
         vuelto = 0;
@@ -54,7 +57,14 @@ public class COMPRADOR {
     public int getVuelto(){
         return vuelto;
     }
+
+    public Moneda getmoneda100(){
+           return b.Moneda100();
+ 
+      
+
+} 
 }
-    
+
 
 
