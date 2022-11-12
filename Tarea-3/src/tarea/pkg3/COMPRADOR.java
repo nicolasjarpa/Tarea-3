@@ -11,28 +11,21 @@ public class COMPRADOR {
     private DepositoVuelto x;
     private Moneda b;
     private int a;
+    private Expendedor r;
+    private Bebida aux;
+    
     
       
     public COMPRADOR(Expendedor p, Moneda m, int cual){
         x = new DepositoVuelto();
-      
+        r=p;
+
         a=cual;
         x.addMoneda(m);
         Bebida b = null;
         vuelto = 0;
         Moneda n;
        
-       
-    
-    
-        try{
-            b = p.compraBebida(m, cual);
-            sabor = b.beber();
-        }
-        catch(NoHayBebidaException e){
-            System.out.println(e.getMessage());
-            sabor = null;
-        }
         
         while(true){
             
@@ -47,10 +40,10 @@ public class COMPRADOR {
             }
         }
     }  
-     public void paint(Graphics g){
-     x.paint(g);
+    public void paint(Graphics g){
+        x.paint(g);
        
-      }
+    }
     public String getSabor(){
         return sabor;
     }
@@ -59,11 +52,14 @@ public class COMPRADOR {
     }
 
     public void getmoneda100(){
-       
- 
-      
 
-} 
+    } 
+    
+   /* public Bebida consumirbebida(){
+        aux = r.getBebida();
+        aux = null;
+        return aux;
+    }*/
 }
 
 

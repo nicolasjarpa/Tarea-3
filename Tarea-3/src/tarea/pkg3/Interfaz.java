@@ -50,7 +50,6 @@ public class Interfaz extends JFrame implements ActionListener{
         super.paint(g);
         c.paint(g);
         e.paint(g);
-
     }
 
     public void config(){
@@ -119,7 +118,7 @@ public  void LineaTexto(){
         
 }
 
- public void actionPerformed(ActionEvent b){
+ public void actionPerformed(ActionEvent b) {
      
      JTextField texto4 = new JTextField();
         texto4.setBounds(50, 50, 80, 50);
@@ -131,58 +130,63 @@ public  void LineaTexto(){
    
   
     if (b.getSource() == rdbA) {
-        System.out.println("the");
         if(a>=e.spriteprice()){
+            e.number=2;
+            e.compraBebida();
             a=a-e.spriteprice();
             texto4.setText(String.valueOf("Saldo "+a));
-            e.tot2=e.tot2-1;
             repaint();
         }
         
-        
-
-        else{
-            System.out.println("No robes chavalin");
+         if(a<=e.spriteprice()){
+            System.out.println("No dispones de fondos suficientes!");
         }
+         
+         
+
+        
     }
     if (b.getSource() == rdbB) {
-        System.out.println("one");
         if(a>=e.fantaprice()){
+            e.number=3;
+            e.compraBebida();
             a=a-e.fantaprice();
             texto4.setText(String.valueOf("Saldo "+a));
-            e.tot3=e.tot3-1;
             repaint();
         }
-        else{
-            System.out.println("No robes chavalin");
+        
+        if(a<=e.fantaprice()){
+            System.out.println("No dispones de fondos suficientes!");
         }
+
     }
     if (b.getSource() == rdbC) {
-        System.out.println("piece");
         if(a>=e.cocaprice()){
+            e.number=1;
+            e.compraBebida();
             a=a-e.cocaprice();
             texto4.setText(String.valueOf("Saldo "+a));
-            e.tot1=e.tot1-1;
             repaint();
         }
-        else{
-            System.out.println("No robes chavalin");
+         if(a<=e.cocaprice()){
+            System.out.println("No dispones de fondos suficientes!");
         }
     }
     if (b.getSource() == Mon100) {
       a=a+ Moneda100.getValor();
-      System.out.println("is");
       texto4.setText("Saldo "+a);
     }
     if (b.getSource() == Mon500) {
         a=a+Moneda500.getValor();
-        System.out.println("real");
         texto4.setText(String.valueOf("Saldo "+a));
     }
     if (b.getSource() == Mon1000) {
         a=a+Moneda1000.getValor();
-        System.out.println("can we get much higher");
         texto4.setText(String.valueOf("Saldo "+a));
+    }
+    
+    if(e.tot1==0 || e.tot2==0 || e.tot3==0){
+        e.number=0;
     }
          
 }
@@ -190,6 +194,7 @@ public  void LineaTexto(){
  public int getPlata(){
      return a;
  }
+ 
 
 }
 

@@ -3,11 +3,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Expendedor {
+public class Expendedor{
     private Deposito coca;
     private Deposito fanta;
     private Deposito sprite;
@@ -19,6 +20,8 @@ public class Expendedor {
     public int tot2;
     public int tot3;
     public ActionEvent b;
+    public int number=0;
+    public Bebida po;
     
     
     int precioCoca;
@@ -46,72 +49,40 @@ public class Expendedor {
               coca.addBebida(new Coca(i+1000));
               fanta.addBebida(new Fanta(i+2000));
               sprite.addBebida(new Sprite(i+3000));
-            }  
+            }
     }
+
+
     
 
     
-    public Bebida compraBebida(Moneda m, int cual) throws NoHayBebidaException{
-        Bebida e = null;
-        
-        if(m == null){
-            throw new NoHayBebidaException("PagoIncorrectoException");
-        }
-        
-        if(cual==1 && m.getValor() >= precioCoca){
-            e = coca.getBebida();
-            if(e==null){
-                pepe.addMoneda(m);
-                throw new NoHayBebidaException("NoHayBebidaException");
-                
-            }
+    public void compraBebida(){
+
+        if(number==3 && tot3 >0){
             
-            vueltoChavalada(m, precioCoca);
-            return e;
-        }
-            
-        if(cual==2 && m.getValor() >= precioFanta){
-            e=fanta.getBebida();
-             if(e==null){
-                 pepe.addMoneda(m);
-                throw new NoHayBebidaException("NoHayBebidaException");
-            }
-             
-            vueltoChavalada(m, precioFanta);
-            return e;
+            tot3=tot3-1;
+
         }
         
-        if(cual == 3 && m.getValor() >= precioSprite){
-            e=sprite.getBebida();
-             if(e==null){
-                 pepe.addMoneda(m);
-                throw new NoHayBebidaException("NoHayBebidaException");
-            }
-             
-            vueltoChavalada(m, precioSprite);
-            return e;
+                    
+            
+        if(number==2 && tot2>0){
+            
+            tot2=tot2-1;
+
+        }
+        
+        if(number==1 && tot1>0){
+            
+            tot1=tot1-1;
+        }
+        
+        if(tot1==0 || tot2==0 || tot3==0){
+                System.out.println("No hay Bebidas");
         }
         
 
-         
-                
-        if(m.getValor() < precioCoca){
-            pepe.addMoneda(m);
-            throw new NoHayBebidaException("PagoInsuficienteException");
-        }
-        
-        if(m.getValor() < precioFanta){
-            pepe.addMoneda(m);
-            throw new NoHayBebidaException("PagoInsuficienteException");
-        }
-        
-        if(m.getValor() < precioSprite){
-            pepe.addMoneda(m);
-            throw new NoHayBebidaException("PagoInsuficienteException");
-        }
-        
-        
-        return null;
+
     }
     
     
@@ -127,6 +98,12 @@ public class Expendedor {
         return pepe.getMoneda(0);
     }
     
+   /* public Bebida getBebida(){
+        if(number==1){
+            return po.Coca.beber();
+        }
+    } */
+    
     
     public void paint(Graphics g){
         
@@ -140,6 +117,19 @@ public class Expendedor {
         }
           if(tot3>10){
             tot3 = 10;
+        }
+          
+        else if(number==1){
+              coca.paint(g, 165, 575);
+
+        }
+        else if(number==2){
+              sprite.paint(g, 165, 575);
+
+        }
+        else  if(number==3){
+              fanta.paint(g, 165, 575);
+
         }
 
         int j=0;
@@ -162,7 +152,7 @@ public class Expendedor {
             f=f+28;
         }
 
-
+        
          
         
     }
