@@ -13,22 +13,25 @@ public class Interfaz extends JFrame implements ActionListener{
   private Moneda Moneda1000;
   public JButton rdbA = new JButton("Asesino de monea");
   public JButton rdbB = new JButton("Bendecir Monea");
-   public JButton rdbC = new JButton("Q Li moneda ARG");
+  public JButton rdbC = new JButton("Q Li moneda ARG");
   public JButton Mon1000 = new JButton();
   public JButton Mon500 = new JButton();
   public JButton Mon100 = new JButton();
+  public JButton vuelta = new JButton();
   public JTextField txtColor = new JTextField(10);
   private ButtonGroup grupo = new ButtonGroup();
-    public  JTextField campoTexto = new JTextField(4);
-    int a=0;
- JTextField texto4 = new JTextField();
-    public Interfaz(){
+  public  JTextField campoTexto = new JTextField(4);
+  int a=0;
+  JTextField texto4 = new JTextField();
+
+    
+  public Interfaz(){
         Moneda100 = new Moneda100();
         Moneda500 = new Moneda500();
         Moneda1000 = new Moneda1000();
 
-        e = new Expendedor(11,600,200,1000);
-        c= new COMPRADOR(e,Moneda1000,2);
+        e = new Expendedor(10,600,200,1000);
+        c = new COMPRADOR(e,Moneda1000,2);
         this.setSize(960, 960);
         this.setTitle("Máquina de Bebidas");
         this.setLocationRelativeTo(null);
@@ -89,6 +92,10 @@ public class Interfaz extends JFrame implements ActionListener{
         Mon100.setIcon(new ImageIcon(mon100.getImage().getScaledInstance(Mon100.getWidth(),Mon100.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(Mon100);
         Mon100.addActionListener(this);
+        vuelta.setBounds(100, 800, 100, 100);
+        ImageIcon vuelta1 = new ImageIcon("vuelto.png");
+        vuelta.setIcon(new ImageIcon(vuelta1.getImage().getScaledInstance(vuelta.getWidth(),vuelta.getHeight(),Image.SCALE_SMOOTH)));
+        lamina.add(vuelta);
     }
 public  void LineaTexto(){
         JTextField texto = new JTextField();
@@ -110,7 +117,7 @@ public  void LineaTexto(){
         texto3.setEditable(false);
         lamina.add(texto3);
         
-                }
+}
 
  public void actionPerformed(ActionEvent b){
      
@@ -124,36 +131,65 @@ public  void LineaTexto(){
    
   
     if (b.getSource() == rdbA) {
-    System.out.println("the");
-    a=a-e.spriteprice();
-    texto4.setText(String.valueOf("Saldo "+a));
+        System.out.println("the");
+        if(a>=e.spriteprice()){
+            a=a-e.spriteprice();
+            texto4.setText(String.valueOf("Saldo "+a));
+            e.tot2=e.tot2-1;
+            repaint();
+        }
+        
+        
+
+        else{
+            System.out.println("No robes chavalin");
+        }
     }
     if (b.getSource() == rdbB) {
-    System.out.println("one");
-     a=a-e.fantaprice();
-     texto4.setText(String.valueOf("Saldo "+a));
-  }
+        System.out.println("one");
+        if(a>=e.fantaprice()){
+            a=a-e.fantaprice();
+            texto4.setText(String.valueOf("Saldo "+a));
+            e.tot3=e.tot3-1;
+            repaint();
+        }
+        else{
+            System.out.println("No robes chavalin");
+        }
+    }
     if (b.getSource() == rdbC) {
-   System.out.println("piece");
-    a=a-e.cocaprice();
-    texto4.setText(String.valueOf("Saldo "+a));
+        System.out.println("piece");
+        if(a>=e.cocaprice()){
+            a=a-e.cocaprice();
+            texto4.setText(String.valueOf("Saldo "+a));
+            e.tot1=e.tot1-1;
+            repaint();
+        }
+        else{
+            System.out.println("No robes chavalin");
+        }
     }
-      if (b.getSource() == Mon100) {
+    if (b.getSource() == Mon100) {
       a=a+ Moneda100.getValor();
-   System.out.println("is");
-   texto4.setText("Saldo "+a);
+      System.out.println("is");
+      texto4.setText("Saldo "+a);
     }
-        if (b.getSource() == Mon500) {
-            a=a+Moneda500.getValor();
-   System.out.println("real");
-   texto4.setText(String.valueOf("Saldo "+a));
+    if (b.getSource() == Mon500) {
+        a=a+Moneda500.getValor();
+        System.out.println("real");
+        texto4.setText(String.valueOf("Saldo "+a));
     }
-          if (b.getSource() == Mon1000) {
-              a=a+Moneda1000.getValor();
-   System.out.println("can we get much higher");
-   texto4.setText(String.valueOf("Saldo "+a));
+    if (b.getSource() == Mon1000) {
+        a=a+Moneda1000.getValor();
+        System.out.println("can we get much higher");
+        texto4.setText(String.valueOf("Saldo "+a));
     }
          
 }
+ 
+ public int getPlata(){
+     return a;
+ }
+
 }
 

@@ -24,15 +24,20 @@ class DepositoVuelto{
         m.add(new Moneda1000());
     }
 
-    public Moneda getMoneda(){
+    public Moneda getMoneda(int n){
 
         if(m.size()==0){
             return null;
         }
         
-        return m.remove(0);
+        return m.get(n);
         
-    }        
+    }  
+    
+    public ArrayList getArray(){
+        return m;
+    }
+    
     public void paint(Graphics g){
       Moneda a100 = m.get(0);
       a100.paint(g);

@@ -2,8 +2,11 @@ package tarea.pkg3;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 public class Expendedor {
     private Deposito coca;
     private Deposito fanta;
@@ -12,7 +15,10 @@ public class Expendedor {
     private int vuelto;
     private Image exp;
     private Image pe;
-    private int tot;
+    public int tot1;
+    public int tot2;
+    public int tot3;
+    public ActionEvent b;
     
     
     int precioCoca;
@@ -25,7 +31,10 @@ public class Expendedor {
         this.precioCoca = precioCoca;
         this.precioFanta = precioFanta;
         this.precioSprite = precioSprite;
-        tot = cantidad;
+        tot1 = cantidad;
+        tot2 = cantidad;
+        tot3 = cantidad;
+        
         exp = new ImageIcon("expend.png").getImage();
 
           coca= new Deposito();
@@ -40,24 +49,7 @@ public class Expendedor {
             }  
     }
     
-    public void paint(Graphics g){
-        g.drawImage(exp, -400, 0, 1480, 800, null);
-        if(tot>10){
-            tot = 10;
-        }
-        int j=0;
-        for(int i=0; i<tot; i++){
-            
-            coca.paint(g, 165+j, 475);
-            fanta.paint(g, 165+j, 400);
-            sprite.paint(g, 165+j, 331);
-            j=j+28;
-        }
 
-
-         
-        
-    }
     
     public Bebida compraBebida(Moneda m, int cual) throws NoHayBebidaException{
         Bebida e = null;
@@ -125,18 +117,54 @@ public class Expendedor {
     
     
     public void vueltoChavalada(Moneda m, int cual){
-        int p = (m.getValor() - cual) / 100;
+       /* int p = (m.getValor() - cual) / 100;
         for (int i = 0; i < p; i++) {
-            pepe.Monea100();
-        }
+            pepe.Monea100(); 
+        } */
     }
     
     public Moneda getVuelto(){
-        return pepe.getMoneda();
+        return pepe.getMoneda(0);
     }
     
-    public int getTot(){
-        return tot;
+    
+    public void paint(Graphics g){
+        
+        
+        g.drawImage(exp, -400, 0, 1480, 800, null);
+        if(tot1>10){
+            tot1 = 10;
+        }
+         if(tot2>10){
+            tot2 = 10;
+        }
+          if(tot3>10){
+            tot3 = 10;
+        }
+
+        int j=0;
+        for(int i=0; i<tot1; i++){
+            
+            coca.paint(g, 165+j, 475);
+            j=j+28;
+        }
+        int l=0;
+        for(int i=0; i<tot2; i++){
+
+            sprite.paint(g, 165+l, 331);
+            l=l+28;
+        }
+        int f=0;
+        for(int i=0; i<tot3; i++){
+
+            fanta.paint(g, 165+f, 400);
+
+            f=f+28;
+        }
+
+
+         
+        
     }
     
 public int  cocaprice(){
