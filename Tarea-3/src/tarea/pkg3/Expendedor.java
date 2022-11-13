@@ -19,10 +19,11 @@ public class Expendedor{
     public int tot1;
     public int tot2;
     public int tot3;
+    private int totgeneral;
     public ActionEvent b;
     public int number=0;
-    public Bebida po;
-    
+    public Bebida po=null;
+    public int a=0;
     
     int precioCoca;
     int precioFanta;
@@ -37,7 +38,7 @@ public class Expendedor{
         tot1 = cantidad;
         tot2 = cantidad;
         tot3 = cantidad;
-        
+        totgeneral=cantidad;
         exp = new ImageIcon("expend.png").getImage();
 
           coca= new Deposito();
@@ -53,13 +54,26 @@ public class Expendedor{
     }
 
 
+    public void reponerBebidas(){
+         for(int i=0; i<totgeneral; i++){
+             coca.addBebida(new Coca(i+1000));
+         }
+         for(int i=0; i<totgeneral; i++){
+        fanta.addBebida(new Fanta(i+2000));
+         }
+    
+    for(int i=0; i<totgeneral; i++){
+         sprite.addBebida(new Sprite(i+3000));
+         }
+    }
     
 
     
     public void compraBebida(){
+      
 
         if(number==3 && tot3 >0){
-            
+            po =fanta.getBebida();
             tot3=tot3-1;
 
         }
@@ -67,32 +81,47 @@ public class Expendedor{
                     
             
         if(number==2 && tot2>0){
-            
+            po =sprite.getBebida();
             tot2=tot2-1;
 
         }
         
         if(number==1 && tot1>0){
-            
+            po =coca.getBebida();
             tot1=tot1-1;
         }
         
-        if(tot1==0 || tot2==0 || tot3==0){
+        else if(tot1==0){
                 System.out.println("No hay Bebidas");
         }
-        
-
-
+        else if ( tot2==0){
+            System.out.println("No hay Bebidas");
+        }
+        else if(tot3==0){
+            System.out.println("No hay Bebidas");
+        }
+          int p = (a - precioCoca) / 100;
+          int pp =(a-precioSprite)/100;
+          int ppp =(a-precioFanta)/100;
+        for (int i = 0; i < p; i++) {
+            pepe.Monea100(); 
+            
+    }
+        for (int i = 0; i < pp; i++) {
+            pepe.Monea100();
+        }
+        for (int i = 0; i < ppp; i++) {
+            pepe.Monea100();
+        }
     }
     
     
-    
-    public void vueltoChavalada(Moneda m, int cual){
+    /*public void vueltoChavalada(Moneda m, int cual){
        /* int p = (m.getValor() - cual) / 100;
         for (int i = 0; i < p; i++) {
             pepe.Monea100(); 
         } */
-    }
+    
     
     public Moneda getVuelto(){
         return pepe.getMoneda(0);
@@ -103,7 +132,11 @@ public class Expendedor{
             return po.Coca.beber();
         }
     } */
-    
+        public Bebida getaBebida(){
+        Bebida aux = po;
+        po = null;
+        return aux;
+    }
     
     public void paint(Graphics g){
         
@@ -120,15 +153,15 @@ public class Expendedor{
         }
           
         else if(number==1){
-              coca.paint(g, 165, 575);
+              po.paint(g, 165, 575);
 
         }
         else if(number==2){
-              sprite.paint(g, 165, 575);
+              po.paint(g, 165, 575);
 
         }
         else  if(number==3){
-              fanta.paint(g, 165, 575);
+              po.paint(g, 165, 575);
 
         }
 

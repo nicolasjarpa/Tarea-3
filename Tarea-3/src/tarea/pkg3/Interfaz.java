@@ -21,7 +21,6 @@ public class Interfaz extends JFrame implements ActionListener{
   public JTextField txtColor = new JTextField(10);
   private ButtonGroup grupo = new ButtonGroup();
   public  JTextField campoTexto = new JTextField(4);
-  int a=0;
   JTextField texto4 = new JTextField();
 
     
@@ -130,15 +129,15 @@ public  void LineaTexto(){
    
   
     if (b.getSource() == rdbA) {
-        if(a>=e.spriteprice()){
+        if(e.a>=e.spriteprice()){
             e.number=2;
             e.compraBebida();
-            a=a-e.spriteprice();
-            texto4.setText(String.valueOf("Saldo "+a));
+            e.a=e.a-e.spriteprice();
+            texto4.setText(String.valueOf("Saldo "+e.a));
             repaint();
         }
         
-         if(a<=e.spriteprice()){
+        else if(e.a-e.spriteprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
          
@@ -147,53 +146,51 @@ public  void LineaTexto(){
         
     }
     if (b.getSource() == rdbB) {
-        if(a>=e.fantaprice()){
+        if(e.a>=e.fantaprice()){
             e.number=3;
             e.compraBebida();
-            a=a-e.fantaprice();
-            texto4.setText(String.valueOf("Saldo "+a));
+            e.a=e.a-e.fantaprice();
+            texto4.setText(String.valueOf("Saldo "+e.a));
             repaint();
         }
         
-        if(a<=e.fantaprice()){
+        else if(e.a-e.fantaprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
 
     }
     if (b.getSource() == rdbC) {
-        if(a>=e.cocaprice()){
+        if(e.a>=e.cocaprice()){
             e.number=1;
             e.compraBebida();
-            a=a-e.cocaprice();
-            texto4.setText(String.valueOf("Saldo "+a));
+            e.a=e.a-e.cocaprice();
+            texto4.setText(String.valueOf("Saldo "+e.a));
             repaint();
         }
-         if(a<=e.cocaprice()){
+        else if(e.a-e.cocaprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
     }
     if (b.getSource() == Mon100) {
-      a=a+ Moneda100.getValor();
-      texto4.setText("Saldo "+a);
+      e.a=e.a+ Moneda100.getValor();
+      texto4.setText("Saldo "+e.a);
     }
     if (b.getSource() == Mon500) {
-        a=a+Moneda500.getValor();
-        texto4.setText(String.valueOf("Saldo "+a));
+        e.a=e.a+Moneda500.getValor();
+        texto4.setText(String.valueOf("Saldo "+e.a));
     }
     if (b.getSource() == Mon1000) {
-        a=a+Moneda1000.getValor();
-        texto4.setText(String.valueOf("Saldo "+a));
+        e.a=e.a+Moneda1000.getValor();
+        texto4.setText(String.valueOf("Saldo "+e.a));
     }
     
-    if(e.tot1==0 || e.tot2==0 || e.tot3==0){
+    else if(e.tot1==0 || e.tot2==0 || e.tot3==0){
         e.number=0;
     }
          
 }
  
- public int getPlata(){
-     return a;
- }
+
  
 
 }
