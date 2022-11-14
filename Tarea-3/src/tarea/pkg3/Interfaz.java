@@ -18,6 +18,9 @@ public class Interfaz extends JFrame implements ActionListener{
   public JButton Mon500 = new JButton();
   public JButton Mon100 = new JButton();
   public JButton vuelta = new JButton();
+  public JButton Llenar = new JButton();
+  public JButton bebia = new JButton();
+  public JButton test = new JButton("Rellenar maquina 7w7");
   public JTextField txtColor = new JTextField(10);
   private ButtonGroup grupo = new ButtonGroup();
   public  JTextField campoTexto = new JTextField(4);
@@ -39,7 +42,6 @@ public class Interfaz extends JFrame implements ActionListener{
         this.getContentPane().add(lamina);
         config();
         LineaTexto();
-     
     }
     
 
@@ -94,6 +96,23 @@ public class Interfaz extends JFrame implements ActionListener{
         ImageIcon vuelta1 = new ImageIcon("vuelto.png");
         vuelta.setIcon(new ImageIcon(vuelta1.getImage().getScaledInstance(vuelta.getWidth(),vuelta.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(vuelta);
+        
+        bebia.addActionListener(this);
+        bebia.setBounds(230, 540, 50, 50);
+        lamina.add(bebia);
+        
+        Llenar.addActionListener(this);
+        Llenar.setBounds(125, 0, 410, 500);
+        Llenar.setContentAreaFilled(false);
+        Llenar.setBorderPainted(false);
+        Llenar.setOpaque(false);
+        Llenar.setVisible(false);
+        
+        lamina.add(Llenar);
+        
+        test.addActionListener(this);
+        test.setBounds(0, 400, 100, 30);
+        lamina.add(test);
     }
 public  void LineaTexto(){
         JTextField texto = new JTextField();
@@ -184,8 +203,18 @@ public  void LineaTexto(){
         texto4.setText(String.valueOf("Saldo "+e.a));
     }
     
-    else if(e.tot1==0 || e.tot2==0 || e.tot3==0){
-        e.number=0;
+    if(b.getSource() == test){
+        System.out.println("The one piece is real");
+        e.reponerBebidas();
+        repaint();
+    }
+    
+    if(b.getSource() == bebia){
+        
+        e.getaBebida();
+        
+        System.out.println("Glugluglu");
+        repaint();
     }
          
 }

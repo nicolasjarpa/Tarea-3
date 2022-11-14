@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Expendedor{
@@ -22,8 +23,10 @@ public class Expendedor{
     private int totgeneral;
     public ActionEvent b;
     public int number=0;
-    public Bebida po=null;
+    public Bebida po;
     public int a=0;
+    private Bebida aux;
+
     
     int precioCoca;
     int precioFanta;
@@ -55,16 +58,20 @@ public class Expendedor{
 
 
     public void reponerBebidas(){
-         for(int i=0; i<totgeneral; i++){
-             coca.addBebida(new Coca(i+1000));
-         }
-         for(int i=0; i<totgeneral; i++){
-        fanta.addBebida(new Fanta(i+2000));
-         }
+        for(int i=0; i<totgeneral; i++){
+            coca.addBebida(new Coca(i+1000));
+            tot1=totgeneral;
+            
+        }
+        for(int i=0; i<totgeneral; i++){
+            fanta.addBebida(new Fanta(i+2000));
+            tot2=totgeneral;
+        }
     
-    for(int i=0; i<totgeneral; i++){
-         sprite.addBebida(new Sprite(i+3000));
-         }
+        for(int i=0; i<totgeneral; i++){
+            sprite.addBebida(new Sprite(i+3000));
+            tot3=totgeneral;
+        }
     }
     
 
@@ -133,7 +140,7 @@ public class Expendedor{
         }
     } */
         public Bebida getaBebida(){
-        Bebida aux = po;
+        aux = po;
         po = null;
         return aux;
     }
@@ -152,15 +159,15 @@ public class Expendedor{
             tot3 = 10;
         }
           
-        else if(number==1){
+        else if(number==1 && po!=null){
               po.paint(g, 165, 575);
 
         }
-        else if(number==2){
+        else if(number==2 && po!=null){
               po.paint(g, 165, 575);
 
         }
-        else  if(number==3){
+        else  if(number==3 && po!=null){
               po.paint(g, 165, 575);
 
         }
