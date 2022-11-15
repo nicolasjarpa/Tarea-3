@@ -40,10 +40,7 @@ public class COMPRADOR {
             }
         }
     }  
-    public void paint(Graphics g){
-        x.paint(g);
-       
-    }
+ 
     public String getSabor(){
         return sabor;
     }

@@ -49,7 +49,6 @@ public class Interfaz extends JFrame implements ActionListener{
   @Override
     public void paint(Graphics g){
         super.paint(g);
-        c.paint(g);
         e.paint(g);
     }
 
@@ -171,6 +170,10 @@ public  void LineaTexto(){
             e.a=e.a-e.fantaprice();
             texto4.setText(String.valueOf("Saldo "+e.a));
             repaint();
+            e.vuelto=e.a-e.fantaprice();
+            e.getVuel2(e.vuelto);
+            
+          
         }
         
         else if(e.a-e.fantaprice()<0){
@@ -192,15 +195,21 @@ public  void LineaTexto(){
     }
     if (b.getSource() == Mon100) {
       e.a=e.a+ Moneda100.getValor();
+      e.addMoneda(new Moneda100());
       texto4.setText("Saldo "+e.a);
+      repaint();
     }
     if (b.getSource() == Mon500) {
         e.a=e.a+Moneda500.getValor();
+        e.addMoneda(new Moneda500());
         texto4.setText(String.valueOf("Saldo "+e.a));
+        repaint();
     }
     if (b.getSource() == Mon1000) {
         e.a=e.a+Moneda1000.getValor();
+        e.addMoneda(new Moneda1000());
         texto4.setText(String.valueOf("Saldo "+e.a));
+        repaint();
     }
     
     if(b.getSource() == test){
@@ -213,10 +222,10 @@ public  void LineaTexto(){
         
         e.getaBebida();
         
-        System.out.println("Glugluglu");
+        
         repaint();
     }
-         
+
 }
  
 

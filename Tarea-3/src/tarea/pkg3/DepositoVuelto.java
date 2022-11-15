@@ -38,8 +38,18 @@ class DepositoVuelto{
         return m;
     }
     
-    public void paint(Graphics g){
-      Moneda a100 = m.get(0);
-      a100.paint(g);
+    public void paint(Graphics g, int n){
+        if(n == 1){
+            for(int i =0; i<m.size(); i++){
+                m.get(i).paint(g, 5+50*(i), 50);
+            }
+        }
+        if(n == 2){
+            for(int i =0; i<m.size(); i++){
+                m.get(i).paint(g, 500, 500);
+            }
+        }
+ 
     }
 }
+

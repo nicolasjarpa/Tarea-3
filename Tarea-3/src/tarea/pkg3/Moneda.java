@@ -7,7 +7,7 @@ import java.awt.image.ImageObserver;
 import javax.swing.ImageIcon;
 
 abstract class Moneda{
-public abstract void paint(Graphics g);
+public abstract void paint(Graphics g, int x, int y);
     
     public Moneda(){
     
@@ -28,9 +28,9 @@ public abstract void paint(Graphics g);
         Moneda100= new ImageIcon("monea100.png").getImage();
     }
      @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics g, int x, int y) {
         
-        g.drawImage(Moneda100,760 , 760, 50, 50, null);
+        g.drawImage(Moneda100,x , y, 50, 50, null);
     }
         
     
@@ -47,7 +47,7 @@ public abstract void paint(Graphics g);
            Moneda500= new ImageIcon("monea500.png").getImage();
      }
      @Override
-     public void paint(Graphics g) {
+     public void paint(Graphics g, int x, int y) {
          ImageObserver observer = new ImageObserver() {
 
             @Override
@@ -56,7 +56,7 @@ public abstract void paint(Graphics g);
             }
         };
         
-        g.drawImage(Moneda500,760 , 760, 50, 50, null);
+        g.drawImage(Moneda500,x , y, 50, 50, null);
     }
         
     
@@ -75,8 +75,16 @@ public abstract void paint(Graphics g);
          Moneda1000= new ImageIcon("monea1000.png").getImage();
      }
      @Override
-     public void paint(Graphics g) {
+     public void paint(Graphics g, int x, int y) {
+           ImageObserver observer = new ImageObserver() {
 
+            @Override
+            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                return true;
+            }
+            
+        };
+           g.drawImage(Moneda1000,x , y, 50, 50, null);
     }
      
      @Override

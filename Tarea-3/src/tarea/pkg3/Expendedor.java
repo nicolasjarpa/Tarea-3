@@ -14,7 +14,8 @@ public class Expendedor{
     private Deposito fanta;
     private Deposito sprite;
     private DepositoVuelto pepe;
-    private int vuelto;
+    private DepositoVuelto draken;
+    public int vuelto;
     private Image exp;
     private Image pe;
     public int tot1;
@@ -28,9 +29,10 @@ public class Expendedor{
     private Bebida aux;
 
     
-    int precioCoca;
-    int precioFanta;
-    int precioSprite;
+    private int precioCoca;
+    private int precioFanta;
+    private int precioSprite;
+    int CuantoVuelto;
     
 
     
@@ -43,11 +45,11 @@ public class Expendedor{
         tot3 = cantidad;
         totgeneral=cantidad;
         exp = new ImageIcon("expend.png").getImage();
-
-          coca= new Deposito();
-           fanta = new Deposito();
-          sprite = new Deposito();
-          pepe = new DepositoVuelto();
+        coca= new Deposito();
+        fanta = new Deposito();
+        sprite = new Deposito();
+        pepe = new DepositoVuelto();
+        draken = new DepositoVuelto();
           
            for(int i=0; i<cantidad; i++){
               coca.addBebida(new Coca(i+1000));
@@ -77,19 +79,22 @@ public class Expendedor{
 
     
     public void compraBebida(){
-      
+        int v=0;
 
+    
         if(number==3 && tot3 >0){
-            po =fanta.getBebida();
-            tot3=tot3-1;
+            
+            po = fanta.getBebida();
+            tot3 = tot3-1;
+            
 
         }
         
                     
             
         if(number==2 && tot2>0){
-            po =sprite.getBebida();
-            tot2=tot2-1;
+            po = sprite.getBebida();
+            tot2 = tot2-1;
 
         }
         
@@ -124,14 +129,26 @@ public class Expendedor{
     
     
     /*public void vueltoChavalada(Moneda m, int cual){
-       /* int p = (m.getValor() - cual) / 100;
+        int p = (m.getValor() - cual) / 100;
         for (int i = 0; i < p; i++) {
             pepe.Monea100(); 
         } */
     
     
     public Moneda getVuelto(){
+        
         return pepe.getMoneda(0);
+    }
+    
+    public void getVuel2(int n){
+        while(n>0){
+            pepe.Monea100();
+            n-=100;
+        }
+    }
+    
+    public void addMoneda(Moneda m){
+        draken.addMoneda(m);
     }
     
    /* public Bebida getBebida(){
@@ -142,6 +159,7 @@ public class Expendedor{
         public Bebida getaBebida(){
         aux = po;
         po = null;
+        System.out.println("Glugluglu");
         return aux;
     }
     
@@ -191,8 +209,9 @@ public class Expendedor{
 
             f=f+28;
         }
+        draken.paint(g,1);
+        pepe.paint(g,2);
 
-        
          
         
     }
