@@ -11,6 +11,7 @@ public class Interfaz extends JFrame implements ActionListener{
   private Moneda Moneda100;
   private Moneda Moneda500;
   private Moneda Moneda1000;
+  private DepositoVuelto p;
   public JButton rdbA = new JButton("Asesino de monea");
   public JButton rdbB = new JButton("Bendecir Monea");
   public JButton rdbC = new JButton("Q Li moneda ARG");
@@ -20,8 +21,9 @@ public class Interfaz extends JFrame implements ActionListener{
   public JButton vuelta = new JButton();
   public JButton Llenar = new JButton();
   public JButton bebia = new JButton();
-  public JButton test = new JButton("Rellenar maquina 7w7");
+  public JButton test = new JButton("Rellenar 7w7");
   public JTextField txtColor = new JTextField(10);
+  public JButton meterplata = new JButton("Insertar dinero");
   private ButtonGroup grupo = new ButtonGroup();
   public  JTextField campoTexto = new JTextField(4);
   JTextField texto4 = new JTextField();
@@ -91,6 +93,7 @@ public class Interfaz extends JFrame implements ActionListener{
         Mon100.setIcon(new ImageIcon(mon100.getImage().getScaledInstance(Mon100.getWidth(),Mon100.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(Mon100);
         Mon100.addActionListener(this);
+        vuelta.addActionListener(this);
         vuelta.setBounds(100, 800, 100, 100);
         ImageIcon vuelta1 = new ImageIcon("vuelto.png");
         vuelta.setIcon(new ImageIcon(vuelta1.getImage().getScaledInstance(vuelta.getWidth(),vuelta.getHeight(),Image.SCALE_SMOOTH)));
@@ -110,8 +113,12 @@ public class Interfaz extends JFrame implements ActionListener{
         lamina.add(Llenar);
         
         test.addActionListener(this);
-        test.setBounds(0, 400, 100, 30);
+        test.setBounds(10, 400, 110, 30);
         lamina.add(test);
+        
+        meterplata.addActionListener(this);
+        meterplata.setBounds(530, 380, 140, 30);
+        lamina.add(meterplata);
     }
 public  void LineaTexto(){
         JTextField texto = new JTextField();
@@ -143,19 +150,25 @@ public  void LineaTexto(){
         texto4.setEditable(false);
         lamina.add(texto4);
         
+     JTextField texto5 = new JTextField();
+        texto5.setBounds(50, 100, 100, 50);
+        texto5.setBackground(Color.white);
+        texto5.setEditable(false);
+        lamina.add(texto5);
+        
         
    
   
     if (b.getSource() == rdbA) {
-        if(e.a>=e.spriteprice()){
+        if(e.uta>=e.spriteprice()){
             e.number=2;
             e.compraBebida();
-            e.a=e.a-e.spriteprice();
-            texto4.setText(String.valueOf("Saldo "+e.a));
+            e.uta=e.uta-e.spriteprice();
+            texto5.setText(String.valueOf("Maquina "+e.uta));
             repaint();
         }
         
-        else if(e.a-e.spriteprice()<0){
+        else if(e.uta-e.spriteprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
          
@@ -164,13 +177,13 @@ public  void LineaTexto(){
         
     }
     if (b.getSource() == rdbB) {
-        if(e.a>=e.fantaprice()){
+        if(e.uta>=e.fantaprice()){
             e.number=3;
             e.compraBebida();
-            e.a=e.a-e.fantaprice();
-            texto4.setText(String.valueOf("Saldo "+e.a));
+            e.uta=e.uta-e.fantaprice();
+            texto5.setText(String.valueOf("Maquina "+e.uta));
             repaint();
-            e.vuelto=e.a-e.fantaprice();
+            e.vuelto=e.uta-e.fantaprice();
             e.getVuel2(e.vuelto);
             
           
@@ -182,14 +195,14 @@ public  void LineaTexto(){
 
     }
     if (b.getSource() == rdbC) {
-        if(e.a>=e.cocaprice()){
+        if(e.uta>=e.cocaprice()){
             e.number=1;
             e.compraBebida();
-            e.a=e.a-e.cocaprice();
-            texto4.setText(String.valueOf("Saldo "+e.a));
+            e.uta=e.uta-e.cocaprice();
+            texto5.setText(String.valueOf("Maquina "+e.uta));
             repaint();
         }
-        else if(e.a-e.cocaprice()<0){
+        else if(e.uta-e.cocaprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
     }
@@ -213,7 +226,6 @@ public  void LineaTexto(){
     }
     
     if(b.getSource() == test){
-        System.out.println("The one piece is real");
         e.reponerBebidas();
         repaint();
     }
@@ -224,6 +236,29 @@ public  void LineaTexto(){
         
         
         repaint();
+    }
+    
+    if(b.getSource() == meterplata){
+        e.uta = e.a+e.uta;
+        e.a=0;
+        texto4.setText(String.valueOf("Saldo "+e.a));
+        texto5.setText(String.valueOf("Maquina "+e.uta));
+        repaint();
+    }
+    
+    if(b.getSource() == vuelta){
+        if(e.uta>0){    
+            e.getVuel2(e.uta);
+            e.uta=e.uta-100;
+            e.a=e.a+100;
+            texto5.setText(String.valueOf("Maquina "+e.uta));
+            texto4.setText(String.valueOf("Saldo "+e.a));
+            e.draken.removeMoneda();
+            repaint();
+        }
+            if(e.uta==0){
+                System.out.println("No tienes dinero en la maquina!");
+        }
     }
 
 }

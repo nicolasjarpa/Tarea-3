@@ -34,6 +34,16 @@ class DepositoVuelto{
         
     }  
     
+     public Moneda removeMoneda(){
+
+        if(m.size()==0){
+            return null;
+        }
+        
+        return m.remove(0);
+        
+    }  
+    
     public ArrayList getArray(){
         return m;
     }
@@ -41,7 +51,7 @@ class DepositoVuelto{
     public void paint(Graphics g, int n){
         if(n == 1){
             for(int i =0; i<m.size(); i++){
-                m.get(i).paint(g, 5+50*(i), 50);
+                m.get(i).paint(g, 5+50*(i), 780);
             }
         }
         if(n == 2){

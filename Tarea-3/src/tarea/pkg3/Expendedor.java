@@ -13,8 +13,8 @@ public class Expendedor{
     private Deposito coca;
     private Deposito fanta;
     private Deposito sprite;
-    private DepositoVuelto pepe;
-    private DepositoVuelto draken;
+    public DepositoVuelto pepe;
+    public DepositoVuelto draken;
     public int vuelto;
     private Image exp;
     private Image pe;
@@ -27,6 +27,7 @@ public class Expendedor{
     public Bebida po;
     public int a=0;
     private Bebida aux;
+    public int uta=0;
 
     
     private int precioCoca;
@@ -128,12 +129,13 @@ public class Expendedor{
     }
     
     
-    /*public void vueltoChavalada(Moneda m, int cual){
-        int p = (m.getValor() - cual) / 100;
-        for (int i = 0; i < p; i++) {
-            pepe.Monea100(); 
-        } */
-    
+    public int vueltoChavalada(){
+        int p = 0; 
+        for (int i = 0; i < draken.getArray().size() ; i++) {
+            p += 100;
+        }
+        return p;
+    }
     
     public Moneda getVuelto(){
         
@@ -209,9 +211,13 @@ public class Expendedor{
 
             f=f+28;
         }
-        draken.paint(g,1);
-        pepe.paint(g,2);
-
+        if(uta!=0 && a==0){
+           draken.paint(g,1); 
+        }
+        
+        if(uta!=0){
+            pepe.paint(g,2);
+        }
          
         
     }
