@@ -162,7 +162,7 @@ public  void LineaTexto(){
    
   
     if (b.getSource() == rdbA) {
-        if(e.uta>=e.spriteprice()){
+        if(e.uta>=e.spriteprice() && e.tot2>0){
             e.number=2;
             e.compraBebida();
             e.uta=e.uta-e.spriteprice();
@@ -171,8 +171,15 @@ public  void LineaTexto(){
             repaint();
         }
         
-        else if(e.uta-e.spriteprice()<0){
-            System.out.println("No dispones de fondos suficientes!");
+        else{
+            if(e.tot2==0){
+                System.out.println("No hay bebidas! Reponer por favor!");
+            }
+            
+            else if(e.tot2!=0){
+            
+                System.out.println("No dispones de fondos suficientes!");
+            }
         }
          
          
@@ -180,7 +187,7 @@ public  void LineaTexto(){
         
     }
    else if (b.getSource() == rdbB) {
-        if(e.uta>=e.fantaprice()){
+        if(e.uta>=e.fantaprice() && e.tot3>0){
             e.number=3;
             e.compraBebida();
             e.uta=e.uta-e.fantaprice();
@@ -192,13 +199,21 @@ public  void LineaTexto(){
           
         }
         
-        else if(e.a-e.fantaprice()<0){
-            System.out.println("No dispones de fondos suficientes!");
+        else{
+            if(e.tot3==0){
+                System.out.println("No hay bebidas! Reponer por favor!");
+            }
+            
+            else if(e.tot3!=0){
+            
+                System.out.println("No dispones de fondos suficientes!");
+            }
         }
+
 
     }
    else if (b.getSource() == rdbC) {
-        if(e.uta>=e.cocaprice()){
+        if(e.uta>=e.cocaprice() && e.tot1>0){
             e.number=1;
             e.compraBebida();
             e.uta=e.uta-e.cocaprice();
@@ -206,9 +221,17 @@ public  void LineaTexto(){
             LineaTexto();
             repaint();
         }
-        else if(e.uta-e.cocaprice()<0){
-            System.out.println("No dispones de fondos suficientes!");
+        else{
+            if(e.tot1==0){
+                System.out.println("No hay bebidas! Reponer por favor!");
+            }
+            
+            else if(e.tot1!=0){
+            
+                System.out.println("No dispones de fondos suficientes!");
+            }
         }
+
     }
     else if (b.getSource() == Mon100) {
       e.a=e.a+ Moneda100.getValor();

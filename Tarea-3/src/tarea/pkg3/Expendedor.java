@@ -104,15 +104,6 @@ public class Expendedor{
             tot1=tot1-1;
         }
         
-        else if(tot1==0){
-                System.out.println("No hay Bebidas");
-        }
-        else if ( tot2==0){
-            System.out.println("No hay Bebidas");
-        }
-        else if(tot3==0){
-            System.out.println("No hay Bebidas");
-        }
           int p = (a - precioCoca) / 100;
           int pp =(a-precioSprite)/100;
           int ppp =(a-precioFanta)/100;
