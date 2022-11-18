@@ -160,8 +160,13 @@ public class Expendedor{
     } */
         public Bebida getaBebida(){
         aux = po;
+        if(po!=null){
+         System.out.println("Glugluglu");    
+        }
+        else{
+        System.out.println("No hay bebida para consumir");}
         po = null;
-        System.out.println("Glugluglu");
+        
         return aux;
     }
     

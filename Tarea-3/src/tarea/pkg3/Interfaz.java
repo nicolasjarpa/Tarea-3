@@ -94,7 +94,7 @@ public class Interfaz extends JFrame implements ActionListener{
         lamina.add(Mon100);
         Mon100.addActionListener(this);
         vuelta.addActionListener(this);
-        vuelta.setBounds(100, 800, 100, 100);
+        vuelta.setBounds(500, 600, 100, 100);
         ImageIcon vuelta1 = new ImageIcon("vuelto.png");
         vuelta.setIcon(new ImageIcon(vuelta1.getImage().getScaledInstance(vuelta.getWidth(),vuelta.getHeight(),Image.SCALE_SMOOTH)));
         lamina.add(vuelta);
@@ -139,12 +139,7 @@ public  void LineaTexto(){
         texto3.setText("Precio " +e.cocaprice());
         texto3.setEditable(false);
         lamina.add(texto3);
-        
-}
-
- public void actionPerformed(ActionEvent b) {
-     
-     JTextField texto4 = new JTextField();
+        JTextField texto4 = new JTextField();
         texto4.setBounds(50, 50, 80, 50);
         texto4.setBackground(Color.white);
         texto4.setEditable(false);
@@ -155,6 +150,13 @@ public  void LineaTexto(){
         texto5.setBackground(Color.white);
         texto5.setEditable(false);
         lamina.add(texto5);
+           texto4.setText(String.valueOf("Saldo "+e.a));
+    texto5.setText(String.valueOf("Maquina "+e.uta));
+}
+
+ public void actionPerformed(ActionEvent b) {
+     
+     
         
         
    
@@ -164,7 +166,8 @@ public  void LineaTexto(){
             e.number=2;
             e.compraBebida();
             e.uta=e.uta-e.spriteprice();
-            texto5.setText(String.valueOf("Maquina "+e.uta));
+            System.out.println("Bebidas sprite comprada");
+            LineaTexto();
             repaint();
         }
         
@@ -176,16 +179,16 @@ public  void LineaTexto(){
 
         
     }
-    if (b.getSource() == rdbB) {
+   else if (b.getSource() == rdbB) {
         if(e.uta>=e.fantaprice()){
             e.number=3;
             e.compraBebida();
             e.uta=e.uta-e.fantaprice();
-            texto5.setText(String.valueOf("Maquina "+e.uta));
-            repaint();
+            System.out.println("Bebidas fanta comprada");
+            LineaTexto();
             e.vuelto=e.uta-e.fantaprice();
             e.getVuel2(e.vuelto);
-            
+            repaint();
           
         }
         
@@ -194,73 +197,81 @@ public  void LineaTexto(){
         }
 
     }
-    if (b.getSource() == rdbC) {
+   else if (b.getSource() == rdbC) {
         if(e.uta>=e.cocaprice()){
             e.number=1;
             e.compraBebida();
             e.uta=e.uta-e.cocaprice();
-            texto5.setText(String.valueOf("Maquina "+e.uta));
+            System.out.println("Bebidas Coca cola comprada");
+            LineaTexto();
             repaint();
         }
         else if(e.uta-e.cocaprice()<0){
             System.out.println("No dispones de fondos suficientes!");
         }
     }
-    if (b.getSource() == Mon100) {
+    else if (b.getSource() == Mon100) {
       e.a=e.a+ Moneda100.getValor();
       e.addMoneda(new Moneda100());
-      texto4.setText("Saldo "+e.a);
+      System.out.println("Saldo +100");
+      LineaTexto();
       repaint();
     }
-    if (b.getSource() == Mon500) {
+    else if (b.getSource() == Mon500) {
         e.a=e.a+Moneda500.getValor();
         e.addMoneda(new Moneda500());
-        texto4.setText(String.valueOf("Saldo "+e.a));
+        System.out.println("Saldo +500");
+        LineaTexto();
         repaint();
     }
-    if (b.getSource() == Mon1000) {
+    else if (b.getSource() == Mon1000) {
         e.a=e.a+Moneda1000.getValor();
         e.addMoneda(new Moneda1000());
-        texto4.setText(String.valueOf("Saldo "+e.a));
-        repaint();
+        System.out.println("Saldo +1000");
+        LineaTexto();
+       repaint();
     }
     
-    if(b.getSource() == test){
+    else if(b.getSource() == test){
         e.reponerBebidas();
+        System.out.println("Bebidas Repuestas");
         repaint();
     }
     
-    if(b.getSource() == bebia){
-        
+    else if(b.getSource() == bebia){
         e.getaBebida();
-        
-        
         repaint();
     }
     
-    if(b.getSource() == meterplata){
+    else if(b.getSource() == meterplata){
         e.uta = e.a+e.uta;
+        System.out.println("dinero introducido en maquina "+e.a);
+        System.out.println("dinero total en maquina "+e.uta);
         e.a=0;
-        texto4.setText(String.valueOf("Saldo "+e.a));
-        texto5.setText(String.valueOf("Maquina "+e.uta));
+      LineaTexto();
         repaint();
     }
     
-    if(b.getSource() == vuelta){
+    else if(b.getSource() == vuelta){
         if(e.uta>0){    
             e.getVuel2(e.uta);
             e.uta=e.uta-100;
             e.a=e.a+100;
-            texto5.setText(String.valueOf("Maquina "+e.uta));
-            texto4.setText(String.valueOf("Saldo "+e.a));
+            for(int i =0; i<(e.uta)/100;i++){
+            e.addMoneda(new Moneda100());
+            e.draken.removeMoneda();
+            }
+            System.out.println("entregando vuelto");
+           LineaTexto();
             e.draken.removeMoneda();
             repaint();
         }
-            if(e.uta==0){
+           else if(e.uta==0){
                 System.out.println("No tienes dinero en la maquina!");
         }
     }
-
+    LineaTexto();
+    repaint();
 }
  
 

@@ -56,7 +56,7 @@ class DepositoVuelto{
         }
         if(n == 2){
             for(int i =0; i<m.size(); i++){
-                m.get(i).paint(g, 500, 500);
+                m.get(i).paint(g, 580, 700);
             }
         }
  
